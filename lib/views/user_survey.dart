@@ -443,16 +443,86 @@ class Summary extends StatelessWidget {
         children: <Widget>[
           const Text('Summary', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
           const SizedBox(height: 10),
-          Text('Name: $name'),
-          Text('Goal: $goal'),
-          Text('Gender: $gender'),
-          Text('Age: $age'),
-          Text('Height: $height cm'),
-          Text('Weight: $weight kg'),
-          Text('Weight Goal: $weightGoal kg'),
-          Text('Goal per Week: ${goalPerWeek.toString()} kg'),
-          Text('Activity Level: $activityLevel'),
-          Text('BMR: ${bmr.toStringAsFixed(2)} kcal/day'),
+          Row(children: [
+            Expanded(
+              child: Container(
+                padding: const EdgeInsets.all(8.0),
+                decoration: BoxDecoration(
+                  color: AppColors.backgroundColor2,
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text('Name: $name', style: TextStyle(fontSize: 18)),
+                    Text('Gender: $gender', style: TextStyle(fontSize: 18)),
+                    Text('Age: $age', style: TextStyle(fontSize: 18)),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(width: 10),
+            Expanded(
+              child: Container(
+                padding: const EdgeInsets.all(8.0),
+                decoration: BoxDecoration(
+                  color: AppColors.backgroundColor2,
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text('Height: $height cm', style: TextStyle(fontSize: 18)),
+                    Text('Weight: $weight kg', style: TextStyle(fontSize: 18)),
+                    Text('Activity Level: $activityLevel', style: TextStyle(fontSize: 18)),
+                  ],
+                ),
+              ),
+            ),
+          ],),
+          const SizedBox(height: 10),         
+            Row(
+              children: [
+              Expanded(
+                child: Container(
+                padding: const EdgeInsets.all(8.0),
+                decoration: BoxDecoration(
+                  color: AppColors.backgroundColor2,
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                  Text('Goal: $goal', style: TextStyle(fontSize: 18)),
+                  Text('Weight Goal: $weightGoal kg', style: TextStyle(fontSize: 18)),
+                  Text('Goal per Week: ${goalPerWeek.toString()} kg', style: TextStyle(fontSize: 18)),
+                  ],
+                ),
+                ),
+              ),
+              ],
+            ),
+            const SizedBox(height: 10),
+            Row(
+              children: [
+              Expanded(
+                child: Container(
+                padding: const EdgeInsets.all(8.0),
+                decoration: BoxDecoration(
+                  color: AppColors.secondaryColor,
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text('BMR: ${bmr.toStringAsFixed(2)} kcal/day', style: TextStyle(fontSize: 36, color: AppColors.inverseTextColor)),
+                  ],
+                ),
+                ),
+              ),
+              ],
+            ),
+          
         ],
       ),
     );
