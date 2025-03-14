@@ -1,4 +1,4 @@
-name: Build Frontend
+name: Build Flutter APK
 on:
   push:
     branches:
@@ -23,11 +23,23 @@ jobs:
         with:
           flutter-version: '3.29.1'
 
+      - name: 🔧 Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: 🛠️ Accept Android Licenses
+        run: yes | flutter doctor --android-licenses
+
+      - name: 🛠️ Create local.properties
+        run: echo "sdk.dir=$ANDROID_SDK_ROOT" > android/local.properties
+
       - name: 🔧 Install Dependencies
         run: flutter pub get
 
-      - name: 🏗 Build Flutter Web
-        run: flutter build android
+      - name: 🏗 Build APK
+        run: flutter build apk --release
 
       - name: ✅ Hoàn tất
-        run: echo "Build hoàn thành!"
+        run: echo "Build APK hoàn thành!"
