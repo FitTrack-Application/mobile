@@ -454,9 +454,9 @@ class Summary extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text('Name: $name', style: TextStyle(fontSize: 18)),
-                    Text('Gender: $gender', style: TextStyle(fontSize: 18)),
-                    Text('Age: $age', style: TextStyle(fontSize: 18)),
+                    Text('Name: $name', style: const TextStyle(fontSize: 18)),
+                    Text('Gender: $gender', style: const TextStyle(fontSize: 18)),
+                    Text('Age: $age', style: const TextStyle(fontSize: 18)),
                   ],
                 ),
               ),
@@ -472,9 +472,9 @@ class Summary extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text('Height: $height cm', style: TextStyle(fontSize: 18)),
-                    Text('Weight: $weight kg', style: TextStyle(fontSize: 18)),
-                    Text('Activity Level: $activityLevel', style: TextStyle(fontSize: 18)),
+                    Text('Height: $height cm', style: const TextStyle(fontSize: 18)),
+                    Text('Weight: $weight kg', style: const TextStyle(fontSize: 18)),
+                    Text('Activity Level: $activityLevel', style: const TextStyle(fontSize: 18)),
                   ],
                 ),
               ),
@@ -493,9 +493,9 @@ class Summary extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                  Text('Goal: $goal', style: TextStyle(fontSize: 18)),
-                  Text('Weight Goal: $weightGoal kg', style: TextStyle(fontSize: 18)),
-                  Text('Goal per Week: ${goalPerWeek.toString()} kg', style: TextStyle(fontSize: 18)),
+                  Text('Goal: $goal', style: const TextStyle(fontSize: 18)),
+                  Text('Weight Goal: $weightGoal kg', style: const TextStyle(fontSize: 18)),
+                  Text('Goal per Week: ${goalPerWeek.toString()} kg', style: const TextStyle(fontSize: 18)),
                   ],
                 ),
                 ),
@@ -515,7 +515,7 @@ class Summary extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text('BMR: ${bmr.toStringAsFixed(2)} kcal/day', style: TextStyle(fontSize: 36, color: AppColors.inverseTextColor)),
+                    Text('BMR: ${bmr.toStringAsFixed(2)} kcal/day', style: const TextStyle(fontSize: 36, color: AppColors.inverseTextColor)),
                   ],
                 ),
                 ),
