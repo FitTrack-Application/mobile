@@ -27,7 +27,7 @@ jobs:
         run: flutter pub get
 
       - name: 🏗 Build Flutter Web
-        run: flutter build web
+        run: flutter build android
 
       - name: ✅ Hoàn tất
         run: echo "Build hoàn thành!"
