@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/constants/app_color.dart';
 import 'package:mobile/views/select_box.dart';
+import 'package:mobile/api_service.dart';
+import 'package:mobile/models/user_info.dart';
 
 class UserSurvey extends StatefulWidget {
   const UserSurvey({super.key});
@@ -432,9 +434,39 @@ class Summary extends StatelessWidget {
     return bmr * activityFactor;
   }
 
+  void sendUserInfoToApi(BuildContext context) async {
+    final apiService = ApiService();
+    double bmr = calculateBMR();
+
+    UserInfo userInfo = UserInfo(
+      name: name,
+      goal: goal,
+      gender: gender,
+      age: int.parse(age),
+      height: double.parse(height),
+      weight: double.parse(weight),
+      weightGoal: double.parse(weightGoal),
+      goalPerWeek: goalPerWeek,
+      activityLevel: activityLevel,
+      bmr: bmr,
+    );
+
+    try {
+      await apiService.createUser(userInfo);
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Data saved successfully!')),
+      );
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Failed to save data: $e')),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     double bmr = calculateBMR();
+    sendUserInfoToApi(context);
 
     return Padding(
       padding: const EdgeInsets.all(16.0),
